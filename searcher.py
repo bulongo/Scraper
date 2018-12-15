@@ -25,4 +25,5 @@ if ans.capitalize() == "Y":
 else:
     sys.exit()
 
-webbrowser.open(selection)
+if items.text in soup.findAll("a".text):
+        webbrowser.open(items)
