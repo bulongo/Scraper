@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup as bs
-import requests, sys
+import requests, sys, webbrowser
 
 #A scipt to scrape sites and download the content depending on what file it type it is
 #i.e. if it is a movie ask to download it or solmething of the sort
@@ -22,3 +22,7 @@ ans = input("would you like to checkout one of these links?(y/n): ")
 
 if ans.capitalize() == "Y":
     selection = input("Which one would you like to check for: ")
+else:
+    sys.exit()
+
+webbrowser.open(selection)
