@@ -10,5 +10,15 @@ holder = requests.get(site)
 
 soup = bs("lxml",holder.text)
 
-for links in soup.findAll("a"):
-    print(links)
+links = []
+
+for items in soup.findAll("a"):
+    links.append(links.text)
+
+
+print(links)
+
+ans = input("would you like to checkout one of these links?(y/n): ")
+
+if ans.capitalize() == "Y":
+    selection = input("Which one would you like to check for: ")
