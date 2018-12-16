@@ -8,22 +8,13 @@ site = input("Enter a site to start scraping: ")
 
 holder = requests.get(site)
 
-soup = bs("lxml",holder.text)
+soup = bs(holder.text,"lxml")
 
 links = []
 
 for items in soup.findAll("a"):
-    links.append(links.text)
+    links.append(items.text)
 
 
-print(links)
-
-ans = input("would you like to checkout one of these links?(y/n): ")
-
-if ans.capitalize() == "Y":
-    selection = input("Which one would you like to check for: ")
-else:
-    sys.exit()
-
-if items.text in soup.findAll("a".text):
-        webbrowser.open(items)
+for things in links:
+    print(things)
