@@ -11,9 +11,13 @@ soup = bs(holder.text,"lxml")
 
 links = []
 
-for items in soup.findAll("a"):
+'''for items in soup.findAll("a"):
     links.append(items.text)
+    if items.isalpha():
+        print(items.text)
 
+#for things in links:
+#    print(things) '''
 
-for things in links:
-    print(things)
+for items in soup.findAll("title"):
+    print(items)
