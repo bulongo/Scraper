@@ -1,5 +1,6 @@
 #Version 0.2
 #this version aims to use a different approach
+#it also only works on sites that have a next button
 
 from bs4 import BeautifulSoup as bs
 import requests
@@ -9,6 +10,8 @@ import requests
 www = "www."
 site = ""
 new_site = ''
+
+#def changer(): 
 
 def site_getter():
     global site,new_site
@@ -28,6 +31,12 @@ holder = requests.get(new_site)
 
 soup = bs(holder.text,"lxml")
 
+tutorial_links = []
+counter = 0
+
 for links in soup.findAll("a"):
-    print(links.text)
+    if "Next" in links.text.strip().capitalize():
+        tutorial_links.append(new_site + links['href'])
+        print(tutorial_links)
+
 
