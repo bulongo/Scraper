@@ -8,9 +8,18 @@
 
 import os,sys
 
+
 one,two,*three = sys.argv
+target = input("Enter your target folder: ")
 #three is a list of all the items that you will give as arguments i.e. the items
 #you want the script to check for in your target folder and deletes
 
+
+os.chdir(target)
+#need to add absolute path to this
+
+print(os.getcwd())
+
 for items in three:
-    print(items)
+    if items in os.getcwd():
+        print(items)
