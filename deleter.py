@@ -14,6 +14,9 @@ target = input("Enter your target folder: ")
 #three is a list of all the items that you will give as arguments i.e. the items
 #you want the script to check for in your target folder and deletes
 
+#review: make it easier to identify files in later versions e.g. give it a folder
+#of items it should store and then use the list it stores as arguments for the 
+#removal in the target directory
 
 os.chdir(target)
 #need to add absolute path to this
@@ -28,16 +31,15 @@ os.chdir(target)
 check = []
 
 def get_items():
-    global target
     for i,j,k in os.walk("./"):
         for items in k:
             check.append(items)
 
 get_items()
 
-#managed to make it show me the items in the target directory and to check if
-#what I am looking equals one of the items in the directory. Now we need to make
-#it ask to delete the item using the os command for deleting. #Multi platform baby
 for items in check:
     if two == items:
-        print("found it")
+        os.remove(two)
+        print(two + " removed")
+
+#deletes items. It works....but why?!
