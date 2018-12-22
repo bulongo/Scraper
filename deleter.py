@@ -18,8 +18,26 @@ target = input("Enter your target folder: ")
 os.chdir(target)
 #need to add absolute path to this
 
-print(os.getcwd())
-
-for items in three:
+'''for items in three:
+#the for loop is not finding the items in os.getcwd,think B
     if items in os.getcwd():
-        print(items)
+        print(items)'''
+
+#we will use os.walk for now
+
+check = []
+
+def get_items():
+    global target
+    for i,j,k in os.walk("./"):
+        for items in k:
+            check.append(items)
+
+get_items()
+
+#managed to make it show me the items in the target directory and to check if
+#what I am looking equals one of the items in the directory. Now we need to make
+#it ask to delete the item using the os command for deleting. #Multi platform baby
+for items in check:
+    if two == items:
+        print("found it")
